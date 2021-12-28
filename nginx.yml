@@ -2,11 +2,11 @@
 - hosts: all
   become: yes
   vars:
-    server_name: "{{ ansible_default_ipv4.address }}"
-    document_root: /usr/share/nginx/html
-    app_root: test-nginx 
-    index_file: test.html
-    #vars_files: /home/santhosh/LEARN/ANSIBLE/nginx-demo/vars/vaules.yml
+     server_name: "{{ ansible_default_ipv4.address }}"
+    #document_root: /usr/share/nginx/html
+    #app_root: test-nginx 
+    #index_file: test.html
+  vars_files: vars/values.yml
   tasks:
     - name: Install Nginx
       apt:
@@ -21,7 +21,7 @@
     - name: Index template
       template:
         src: index.html.j2
-        dest: "{{ document_root }}/{{ app_root }}/{{ index_file }}"
+        dest: "{{ document_root }}/{{ index_file }}"
       notify: Restart Nginx  
     - name: Enable site config
       file:

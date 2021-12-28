@@ -1,4 +1,5 @@
 ## Variables for nginx
 document_root: /usr/share/nginx/html
-app_root: test-nginx 
-index_file: test2.html
+#app_root: test-nginx
+index_file: test.html
+
